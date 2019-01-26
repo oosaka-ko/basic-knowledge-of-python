@@ -1,0 +1,342 @@
+一：环境搭建
+anaconda是一个包含数据科学常用包的 Python 发行版本。
+它是基于 conda ——一个包和环境管理器——衍生而来。你将使用 conda 创建环境，
+以便分隔使用不同 Python 版本和不同程序包的项目。你还将使用它在环境中安装、卸载和更新包。
+通过使用 Anaconda，处理数据的过程将更加愉快。
+
+安装 Anaconda
+Anaconda 可用于 Windows、Mac OS X 和 Linux
+下载地址： http://link.zhihu.com/?target=https%3A//mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
+选择相应的版本进行下载就好
+解释器（英语：Interpreter），又译为直译器，是一种电脑程序，能够把高级编程语言一行一行直接转译运行。
+解释器不会一次把整个程序转译出来，只像一位“中间人”，每次运行程序时都要先转成另一种语言再作运行，
+因此解释器的程序运行速度比较缓慢。它每转译一行程序叙述就立刻运行，然后再转译下一行，再运行，如此不停地进行下去。
+来源：百度百科
+
+二：python初体验
+print：
+1. 字符串和数值类型，可以直接输出
+2.变量，无论什么类型，数值，布尔，列表，字典...都可以直接输出
+3.格式化输出，类似于C中的 printf
+来源网址：https://www.cnblogs.com/graceting/p/3875438.html
+
+Python3.x 中 input() 函数接受一个标准输入数据，返回为 string 类型。
+在 Python3.x 中 raw_input() 和 input() 进行了整合，去除了 raw_input( )，仅保留了input( )函数，
+其接收任意任性输入，将所有输入默认为字符串处理，并返回字符串类型。
+input([prompt]),注：prompt指提示信息
+实例
+input() 需要输入 python 表达式
+>>>a = input("input:")
+input:123                  # 输入整数
+>>> type(a)
+<class 'str'>              # 字符串
+>>> a = input("input:")    
+input:runoob              # 正确，字符串表达式
+>>> type(a)
+<class 'str'>             # 字符串
+来源网址：https://www.runoob.com/python3/python3-func-input.html
+
+三：python基础讲解
+
+python变量特性+命名规则
+1.变量名只能包含字母、数字和下划线。变量名可以字母和下换线打头，但不能以数字打头，
+例如，可将变量名命名为message_1，但不能将其命名为1_message。
+2.变量名不能包含空格，但可使用下划线来分隔其中的单词。例如，变量名greeting_message可行，但变量名greeting message会引发错误。
+3.不要将Python关键字和函数名用作变量名，即不要使用Python保留用于特殊用途的单词，如print（见附录A.4）
+4.变量名应既简短又具有描述性。例如，name比n好，student_name比s_n好，name_length比length_of_person_name好。
+5.慎用小写字母l和大写字母O，因为他们可能被人错看成数字1和0
+
+注释方法
+":"
+本人理解：python的分号
+1.表示，以下缩进了的行从属于分号前的内容
+2.作用，按回车到下一行自动缩进
+dir（...) 函数不带参数时，返回当前范围内的变量、方法和定义的类型列表；
+带参数时，返回参数的属性、方法列表。
+如果参数包含方法__dir__()，该方法将被调用。如果参数不包含__dir__()，该方法将最大限度地收集参数信息。 
+实例
+以下实例展示了 dir 的使用方法：
+>>>dir()   #  获得当前模块的属性列表
+['__builtins__', '__doc__', '__name__', '__package__', 'arr', 'myslice']
+>>> dir([ ])    # 查看列表的方法
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>>
+来源网址：http://www.runoob.com/python/python-func-dir.html
+
+help函数：
+查看python模块中函数的用法，例：>>>help(dir)可得dir函数详情
+
+__import__() 函数用于动态加载类和函数 。
+如果一个模块经常变化就可以使用 __import__() 来动态载入。
+__import__ 语法：
+__import__(name[, globals[, locals[, fromlist[, level]]]])，注：name -- 模块名
+
+PEP8 Python 介绍
+编码规范
+
+ 代码编排
+1 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。
+2 每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。
+3 类和top-level函数定义之间空两行；类中的方法定义之间空一行；函数内逻辑无关段落之间空一行；其他地方尽量不要再空行。
+
+ 文档编排
+1 模块内容的顺序：模块说明和docstring—import—globals&constants—其他定义。其中import部分，又按标准、三方和自己编写顺序依次排放，之间空一行。
+2 不要在一句import中多个库，比如import os, sys不推荐。
+3 如果采用from XX import XX引用库，可以省略‘module.’，都是可能出现命名冲突，这时就要采用import XX。
+
+ 空格的使用
+        总体原则，避免不必要的空格。
+1 各种右括号前不要加空格。
+2 逗号、冒号、分号前不要加空格。
+3 函数的左括号前不要加空格。如Func(1)。
+4 序列的左括号前不要加空格。如list[2]。
+5 操作符左右各加一个空格，不要为了对齐增加空格。
+6 函数默认参数使用的赋值符左右省略空格。
+7 不要将多句语句写在同一行，尽管使用‘；’允许。
+8 if/for/while语句中，即使执行语句只有一句，也必须另起一行。
+
+ 注释
+        总体原则，错误的注释不如没有注释。所以当一段代码发生变化时，第一件事就是要修改注释！
+        注释必须使用英文，最好是完整的句子，首字母大写，句后要有结束符，结束符后跟两个空格，开始下一句。如果是短语，可以省略结束符。
+1 块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：
+# Description : Module config.
+# 
+# Input : None
+#
+# Output : None
+2 行注释，在一句代码后加注释。比如：x = x + 1			# Increment x
+但是这种方式尽量少使用。
+3 避免无谓的注释。
+
+ 文档描述
+1 为所有的共有模块、函数、类、方法写docstrings；非共有的没有必要，但是可以写注释（在def的下一行）。
+2 如果docstring要换行，参考如下例子,详见PEP 257
+"""Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+
+"""
+
+ 命名规范
+        总体原则，新编代码必须按下面命名风格进行，现有库的编码尽量保持风格。
+1 尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。
+2 模块命名尽量短小，使用全部小写的方式，可以使用下划线。
+3 包命名尽量短小，使用全部小写的方式，不可以使用下划线。
+4 类的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方式。
+5 异常命名使用CapWords+Error后缀的方式。
+6 全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是__all__机制;二是前缀一个下划线。
+7 函数命名使用全部小写的方式，可以使用下划线。
+8 常量命名使用全部大写的方式，可以使用下划线。
+9 类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。
+9 类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。
+11 类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。
+12 为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明__a,访问时，只能通过Foo._Foo__a，避免歧义。如果子类也叫Foo，那就无能为力了。
+13 类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。
+
+ 编码建议
+1 编码中考虑到其他python实现的效率等问题，比如运算符‘+’在CPython（Python）中效率很高，都是Jython中却非常低，所以应该采用.join()的方式。
+2 尽可能使用‘is’‘is not’取代‘==’，比如if x is not None 要优于if x。
+3 使用基于类的异常，每个模块或包都有自己的异常类，此异常类继承自Exception。
+4 异常中不要使用裸露的except，except后跟具体的exceptions。
+5 异常中try的代码尽可能少。比如：
+try:
+value = collection[key]
+except KeyError:
+return key_not_found(key)
+else:
+return handle_value(value)
+要优于
+try:
+# Too broad!
+return handle_value(collection[key])
+except KeyError:
+# Will also catch KeyError raised by handle_value()
+return key_not_found(key)
+6 使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：
+Yes:  if foo.startswith('bar'):优于
+No:  if foo[:3] == 'bar':
+7 使用isinstance()比较对象的类型。比如
+Yes:  if isinstance(obj, int): 优于
+No:  if type(obj) is type(1):
+8 判断序列空或不空，有如下规则
+Yes:  if not seq:
+if seq:
+优于
+No:  if len(seq)
+if not len(seq)
+9 字符串不要以空格收尾。
+10 二进制数据判断使用 if boolvalue的方式。
+
+四：python数值基本知识
+int，float，complex
+10，0.0，3.14j
+100，15.20，45.j
+-786，-21.9，9.322e-36j
+080，32.3e+18，.876j
+-0490，-90.，-.6545+0J
+-0x260，-32.54e100，3e+26J
+0x69，70.2E-12，4.53e-7j
+来源网址：http://www.runoob.com/python3/python3-data-type.html
+
+int 整数
+ 整数
+float 浮点数
+ 小数
+bool 布尔值
+*True 正确的
+*False 错误的
+
+Python算术运算符
+以下假设变量： a=10，b=20：
+运算符
++，加 - 两个对象相加，a + b 输出结果 30
+-，减 - 得到负数或是一个数减去另一个数，a - b 输出结果 -10
+*，乘 - 两个数相乘或是返回一个被重复若干次的字符串，a * b 输出结果 200
+/，除 - x除以y，b / a 输出结果 2
+%，取模 - 返回除法的余数，b % a 输出结果 0
+**，幂 - 返回x的y次幂，a**b 为10的20次方， 输出结果 100000000000000000000
+//，取整除 - 返回商的整数部分（向下取整）
+>>> 9//2
+4
+>>> -9//2
+-5
+
+Python逻辑运算符
+Python语言支持逻辑运算符，以下假设变量 a 为 10, b为 20:
+运算符
+逻辑表达式
+
+and，x and y，布尔"与" - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值。 ，(a and b) 返回 20。
+or，x or y，布尔"或" - 如果 x 是非 0，它返回 x 的值，否则它返回 y 的计算值。，(a or b) 返回 10。
+not，not x，布尔"非" - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。，not(a and b) 返回 False 
+
+Python成员运算符
+除了以上的一些运算符之外，Python还支持成员运算符，测试实例中包含了一系列的成员，包括字符串，列表或元组。
+运算符
+in，如果在指定的序列中找到值返回 True，否则返回 False。，x 在 y 序列中 , 如果 x 在 y 序列中返回 True。
+not in，如果在指定的序列中没有找到值返回 True，否则返回 False。，x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。
+
+Python身份运算符
+身份运算符用于比较两个对象的存储单元
+运算符
+is，is 是判断两个标识符是不是引用自一个对象，x is y, 类似 id(x) == id(y) , 如果引用的是同一个对象则返回 True，否则返回 False
+is not，is not 是判断两个标识符是不是引用自不同对象，x is not y ， 类似 id(a) != id(b)。如果引用的不是同一个对象则返回结果 True，否则返回 False。 
+
+Python运算符优先级
+以下表格列出了从最高到最低优先级的所有运算符：
+运算符
+**，指数 (最高优先级)
+~ + -，按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)
+* / % //，乘，除，取模和取整除
++ -，加法减法
+>> <<，右移，左移运算符
+&，位 'AND'
+^ |，位运算符
+<= < > >=，比较运算符
+<> == !=，等于运算符
+= %= /= //= -= += *= **=，赋值运算符
+is is not，身份运算符
+in not in，成员运算符
+not and or，逻辑运算符
+
+五：string字符串
+
+字符串是 Python 中最常用的数据类型。我们可以使用引号('或")来创建字符串。
+创建字符串很简单，只要为变量分配一个值即可。例如：
+var1 = 'Hello World!'
+var2 = "Python Runoob"
+
+Python转义字符
+
+在需要在字符中使用特殊字符时，python用反斜杠(\)转义字符。如下表：
+
+\(在行尾时)，续行符
+\\，反斜杠符号
+\'，单引号
+\"，双引号
+\a，响铃
+\b，退格(Backspace)
+\e，转义
+\000，空
+\n，换行
+\v，纵向制表符
+\t，横向制表符
+\r，回车
+\f，换页
+\oyy，八进制数，yy代表的字符，例如：\o12代表换行
+\xyy，十六进制数，yy代表的字符，例如：\x0a代表换行
+\other，其它的字符以普通格式输出
+
+Python字符串运算符
+下表实例变量 a 值为字符串 "Hello"，b 变量值为 "Python"：
+操作符
+
++，字符串连接
+>>>a + b
+'HelloPython'
+*，重复输出字符串
+>>>a * 2
+'HelloHello'
+[]，通过索引获取字符串中字符
+>>>a[1]
+'e'
+[ : ]，截取字符串中的一部分
+>>>a[1:4]
+'ell'
+in
+成员运算符 - 如果字符串中包含给定的字符返回 True 
+>>>"H" in a
+True
+not in 
+成员运算符 - 如果字符串中不包含给定的字符返回 True 
+>>>"M" not in a
+True
+r/R
+原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母"r"（可以大小写）以外，与普通字符串有着几乎完全相同的语法。
+>>>print r'\n'
+\n
+>>> print R'\n'
+\n
+
+%，格式字符串
+
+Python 字符串格式化
+Python 支持格式化字符串的输出 。尽管这样可能会用到非常复杂的表达式，但最基本的用法是将一个值插入到一个有字符串格式符 %s 的字符串中。
+在 Python 中，字符串格式化使用与 C 中 sprintf 函数一样的语法。
+如下实例：
+#!/usr/bin/python
+
+print "My name is %s and weight is %d kg!" % ('Zara', 21) 
+以上实例输出结果：
+My name is Zara and weight is 21 kg!
+
+python字符串格式化符号:
+
+      %c，格式化字符及其ASCII码
+      %s，格式化字符串
+      %d，格式化整数
+      %u，格式化无符号整型
+      %o，格式化无符号八进制数
+      %x，格式化无符号十六进制数
+      %X，格式化无符号十六进制数（大写）
+      %f，格式化浮点数字，可指定小数点后的精度
+      %e，用科学计数法格式化浮点数
+      %E，作用同%e，用科学计数法格式化浮点数
+      %g，%f和%e的简写
+      %G，%f 和 %E 的简写
+      %p， 用十六进制数格式化变量的地址
+ 
+格式化操作符辅助指令:
+*，定义宽度或者小数点精度 
+-，用做左对齐 
++，在正数前面显示加号( + ) 
+<sp>，在正数前面显示空格 
+#，在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')
+0，显示的数字前面填充'0'而不是默认的空格 
+%，'%%'输出一个单一的'%' 
+(var)，映射变量(字典参数) 
+m.n.，m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)
+Python2.6 开始，新增了一种格式化字符串的函数 str.format()，它增强了字符串格式化的功能。
+来源网址：http://www.runoob.com/python/python-strings.html
+
+
